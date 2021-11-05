@@ -230,10 +230,9 @@ Use getArtistByIndex to do the following:
 
 Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(/*Your Code Here*/) {
-  /*Your Code Here*/
+function getArtistByIndex(array,index) {
+  return `the artist at index ${array[index].id} is ${array[index].name}`;
 }
-
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -244,11 +243,18 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 // Hint - Look up the .split() method
+function get20s(array) {
+  let newArray=[];
+  let str='';
+  for(let i=0;i<array.length;i++){
+    str=array[i].years;
+    if (parseInt(str.slice(0,4))>= 1900 && parseInt(str.substring(7, 11))<=2000){ 
 
-function get20s(/*Your Code Here*/) {
-  /*Your Code Here*/
+        newArray.push(array[i].name);
+    }
+  }
+  return newArray;
 }
-
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -260,8 +266,9 @@ Use removeArtist to do the following:
 
 For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function removeArtist(array,index) {
+  array.splice(index, 1);
+   return array.length;
 }
 
 
@@ -281,10 +288,19 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
-}
+function addArtist(array) {
+  const newArray={ 
+   'id':20,
+   'name':"Your Name Here", 
+   'years': "Your Birth Year - current day",
+   'genre': "Web Design", 
+   'nationality': "Your Nationality Here",
+   'bio': "Add 1-2 sentences (or use lorem ipsum)",
+  }
+  array.push(newArray);
+  return array;
 
+}
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
